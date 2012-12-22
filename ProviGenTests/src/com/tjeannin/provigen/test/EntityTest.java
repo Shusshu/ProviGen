@@ -39,21 +39,21 @@ public class EntityTest extends AndroidTestCase {
 
 		Entity entity = new Entity();
 		entity.setMyInt(123);
-		entity.setMyReal(78.89);
 		entity.setMyString("dze");
+		entity.setMyDouble(78.89);
 
 		ContentValues contentValues = entity.getContentValues();
 
 		assertEquals(Integer.valueOf(123), contentValues.getAsInteger(EntityContract.MY_INT));
-		assertEquals(Double.valueOf(123), contentValues.getAsInteger(EntityContract.MY_REAL));
-		assertEquals("dze", contentValues.getAsInteger(EntityContract.MY_STRING));
+		assertEquals("dze", contentValues.getAsString(EntityContract.MY_STRING));
+		assertEquals(Double.valueOf(78.89), contentValues.getAsDouble(EntityContract.MY_DOUBLE));
 	}
 
 	private ContentValues getContentValues() {
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(EntityContract.MY_INT, 1456);
 		contentValues.put(EntityContract.MY_STRING, "hfdzue");
-		contentValues.put(EntityContract.MY_REAL, 1456.45);
+		contentValues.put(EntityContract.MY_DOUBLE, 1456.45);
 		return contentValues;
 	}
 

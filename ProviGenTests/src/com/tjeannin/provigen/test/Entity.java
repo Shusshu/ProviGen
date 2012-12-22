@@ -10,7 +10,7 @@ public class Entity extends ProviGenEntity {
 
 	private String myString;
 
-	private double myReal;
+	private double myDouble;
 
 	@Column(name = EntityContract.MY_INT)
 	public int getMyInt() {
@@ -30,13 +30,13 @@ public class Entity extends ProviGenEntity {
 		this.myString = myString;
 	}
 
-	@Column(name = EntityContract.MY_REAL)
-	public double getMyReal() {
-		return myReal;
+	@Column(name = EntityContract.MY_DOUBLE)
+	public double getMyDouble() {
+		return myDouble;
 	}
 
-	public void setMyReal(double myReal) {
-		this.myReal = myReal;
+	public void setMyDouble(double myDouble) {
+		this.myDouble = myDouble;
 	}
 
 }

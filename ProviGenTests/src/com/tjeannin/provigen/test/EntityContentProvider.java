@@ -26,7 +26,7 @@ public class EntityContentProvider extends ProviGenProvider {
 		public static final String MY_STRING = "string";
 
 		@Column(type = Type.REAL)
-		public static final String MY_REAL = "real";
+		public static final String MY_DOUBLE = "double";
 
 		@ContentUri
 		public static final Uri CONTENT_URI = Uri.parse("content://com.test.entity/table_entity");

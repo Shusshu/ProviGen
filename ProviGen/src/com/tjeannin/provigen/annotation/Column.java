@@ -20,5 +20,10 @@ import com.tjeannin.provigen.Type;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Column {
-	String type();
+
+	public static final String NO_VALUE = "NONE";
+
+	String type() default NO_VALUE;
+
+	String name() default NO_VALUE;
 }

@@ -12,6 +12,8 @@ public class Entity extends ProviGenEntity {
 
 	private double myDouble;
 
+	private boolean myBoolean;
+
 	@Column(name = EntityContract.MY_INT)
 	public int getMyInt() {
 		return myInt;
@@ -37,6 +39,15 @@ public class Entity extends ProviGenEntity {
 
 	public void setMyDouble(double myDouble) {
 		this.myDouble = myDouble;
+	}
+
+	@Column(name = EntityContract.MY_BOOLEAN)
+	public boolean getMyBoolean() {
+		return myBoolean;
+	}
+
+	public void setMyBoolean(boolean myBoolean) {
+		this.myBoolean = myBoolean;
 	}
 
 }

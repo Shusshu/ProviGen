@@ -39,12 +39,14 @@ public class EntityTest extends AndroidTestCase {
 
 		Entity entity = new Entity();
 		entity.setMyInt(123);
+		entity.setMyBoolean(true);
 		entity.setMyString("dze");
 		entity.setMyDouble(78.89);
 
 		ContentValues contentValues = entity.getContentValues();
 
 		assertEquals(Integer.valueOf(123), contentValues.getAsInteger(EntityContract.MY_INT));
+		assertEquals(Boolean.TRUE, contentValues.getAsBoolean(EntityContract.MY_BOOLEAN));
 		assertEquals("dze", contentValues.getAsString(EntityContract.MY_STRING));
 		assertEquals(Double.valueOf(78.89), contentValues.getAsDouble(EntityContract.MY_DOUBLE));
 	}

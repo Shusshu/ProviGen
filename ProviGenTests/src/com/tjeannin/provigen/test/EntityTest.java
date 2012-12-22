@@ -35,6 +35,20 @@ public class EntityTest extends AndroidTestCase {
 
 	}
 
+	public void testGetEntityContentValues() {
+
+		Entity entity = new Entity();
+		entity.setMyInt(123);
+		entity.setMyReal(78.89);
+		entity.setMyString("dze");
+
+		ContentValues contentValues = entity.getContentValues();
+
+		assertEquals(Integer.valueOf(123), contentValues.getAsInteger(EntityContract.MY_INT));
+		assertEquals(Double.valueOf(123), contentValues.getAsInteger(EntityContract.MY_REAL));
+		assertEquals("dze", contentValues.getAsInteger(EntityContract.MY_STRING));
+	}
+
 	private ContentValues getContentValues() {
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(EntityContract.MY_INT, 1456);

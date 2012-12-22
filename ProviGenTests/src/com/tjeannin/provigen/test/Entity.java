@@ -6,15 +6,13 @@ import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
 
 public class Entity extends ProviGenEntity {
 
-	@Column(name = EntityContract.MY_INT)
 	private int myInt;
 
-	@Column(name = EntityContract.MY_STRING)
 	private String myString;
 
-	@Column(name = EntityContract.MY_REAL)
-	private float myReal;
+	private double myReal;
 
+	@Column(name = EntityContract.MY_INT)
 	public int getMyInt() {
 		return myInt;
 	}
@@ -23,6 +21,7 @@ public class Entity extends ProviGenEntity {
 		this.myInt = myInt;
 	}
 
+	@Column(name = EntityContract.MY_STRING)
 	public String getMyString() {
 		return myString;
 	}
@@ -31,11 +30,12 @@ public class Entity extends ProviGenEntity {
 		this.myString = myString;
 	}
 
-	public float getMyReal() {
+	@Column(name = EntityContract.MY_REAL)
+	public double getMyReal() {
 		return myReal;
 	}
 
-	public void setMyReal(float myReal) {
+	public void setMyReal(double myReal) {
 		this.myReal = myReal;
 	}
 

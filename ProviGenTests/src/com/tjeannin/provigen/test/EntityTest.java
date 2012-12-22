@@ -1,12 +1,12 @@
 package com.tjeannin.provigen.test;
 
-import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
-
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.test.AndroidTestCase;
+
+import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
 
 public class EntityTest extends AndroidTestCase {
 

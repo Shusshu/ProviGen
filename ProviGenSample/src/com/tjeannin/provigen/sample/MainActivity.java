@@ -14,7 +14,6 @@ import android.view.View.OnClickListener;
 import android.widget.ListView;
 
 import com.tjeannin.provigen.sample.SampleContentProvider.SampleContract;
-import com.tjeannin.provigen.sample.R;
 
 public class MainActivity extends FragmentActivity implements LoaderCallbacks<Cursor>, OnClickListener {
 

@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import android.content.ContentValues;
 
 import com.tjeannin.provigen.annotation.Column;
+import com.tjeannin.provigen.exception.InvalidEntityException;
 
 public class ProviGenEntity {
 

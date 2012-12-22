@@ -8,9 +8,9 @@ import android.net.Uri;
 import android.test.ProviderTestCase2;
 import android.test.mock.MockContentResolver;
 
-import com.tjeannin.provigen.InvalidContractException;
-import com.tjeannin.provigen.test.SimpleContentProvider.ContractThree;
+import com.tjeannin.provigen.exception.InvalidContractException;
 import com.tjeannin.provigen.test.SimpleContentProvider.ContractOne;
+import com.tjeannin.provigen.test.SimpleContentProvider.ContractThree;
 import com.tjeannin.provigen.test.SimpleContentProvider.ContractTwo;
 
 public class SimpleContentProviderTest extends ProviderTestCase2<SimpleContentProvider> {

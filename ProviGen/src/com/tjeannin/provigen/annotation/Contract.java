@@ -5,9 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.tjeannin.provigen.ProviGenProvider;
-
 import android.content.ContentProvider;
+
+import com.tjeannin.provigen.ProviGenProvider;
 
 /**
  * Identifies a class representing a {@link ContentProvider} contract.<br/>

@@ -13,11 +13,13 @@ import com.tjeannin.provigen.exception.InvalidContractException;
 public class DummyEntityContentProvider extends ProviGenProvider {
 
 	public DummyEntityContentProvider() throws InvalidContractException {
-		super(EntityContract.class);
+		super(DummyContract.class);
 	}
 
 	@Contract(version = 1)
-	public static interface EntityContract extends ProviGenBaseContract {
+	public static interface DummyContract extends ProviGenBaseContract {
+
+		public static final String CONTENT_URI_STRING = "content://com.test.entity/table_entity";
 
 		@Column(type = Type.INTEGER)
 		public static final String MY_INT = "int";
@@ -35,6 +37,6 @@ public class DummyEntityContentProvider extends ProviGenProvider {
 		public static final String MY_URI = "uri";
 
 		@ContentUri
-		public static final Uri CONTENT_URI = Uri.parse("content://com.test.entity/table_entity");
+		public static final Uri CONTENT_URI = Uri.parse(CONTENT_URI_STRING);
 	}
 }

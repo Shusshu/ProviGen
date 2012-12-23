@@ -3,6 +3,7 @@ package com.tjeannin.provigen;
 import java.lang.reflect.Method;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.net.Uri;
 
 import com.tjeannin.provigen.annotation.ContentUri;
@@ -15,6 +16,13 @@ import com.tjeannin.provigen.exception.InvalidEntityException;
  * You should <b>annotate implementations of this class with the {@link Entity} annotation</b> to specify the matching {@link ContentUri}.
  */
 public class ProviGenEntity {
+
+	public ProviGenEntity() {
+	}
+
+	public ProviGenEntity(Cursor cursor) {
+		
+	}
 
 	public ContentValues getContentValues() {
 

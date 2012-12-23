@@ -3,6 +3,7 @@ package com.tjeannin.provigen;
 import java.lang.reflect.Field;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
@@ -16,6 +17,39 @@ import com.tjeannin.provigen.exception.InvalidEntityException;
  * You should <b>annotate implementations of this class with the {@link Entity} annotation</b> to specify the matching {@link ContentUri}.
  */
 public class ProviGenEntity {
+
+	@Persist(columnName = ProviGenBaseContract._ID)
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Uri getUri() {
+		return Uri.withAppendedPath(getContentUri(), String.valueOf(id));
+	}
+
+	private Uri getContentUri() {
+		Entity entity = this.getClass().getAnnotation(Entity.class);
+		return Uri.parse(entity.contentUri());
+	}
+
+	public void insert(Context context) {
+		Uri insertedUri = context.getContentResolver().insert(getContentUri(), getContentValues());
+		id = Integer.valueOf(insertedUri.getLastPathSegment());
+	}
+
+	public void delete(Context context) {
+		context.getContentResolver().delete(getUri(), null, null);
+	}
+
+	public void update(Context context) {
+		context.getContentResolver().update(getUri(), getContentValues(), null, null);
+	}
 
 	public ProviGenEntity() {
 	}

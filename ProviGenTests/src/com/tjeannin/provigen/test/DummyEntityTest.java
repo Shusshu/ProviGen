@@ -112,7 +112,21 @@ public class DummyEntityTest extends AndroidTestCase {
 		assertEquals("testString", contentValues.getAsString(DummyContract.MY_STRING));
 		assertEquals("www.google.fr", contentValues.getAsString(DummyContract.MY_URI));
 		assertEquals(8465.16, contentValues.getAsDouble(DummyContract.MY_DOUBLE));
+	}
 
+	public void testGetUri() {
+		DummyEntity entity = new DummyEntity(new DummyCursor());
+		entity.setId(45);
+		assertEquals(Uri.parse(DummyContract.CONTENT_URI_STRING + "/45"), entity.getUri());
+	}
+
+	public void testInsertDelete() {
+		DummyEntity entity = new DummyEntity(new DummyCursor());
+		assertEquals(0, getCount(DummyContract.CONTENT_URI));
+		entity.insert(getContext());
+		assertEquals(1, getCount(DummyContract.CONTENT_URI));
+		entity.delete(getContext());
+		assertEquals(0, getCount(DummyContract.CONTENT_URI));
 	}
 
 	private ContentValues getContentValues() {

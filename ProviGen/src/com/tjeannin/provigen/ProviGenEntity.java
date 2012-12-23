@@ -3,6 +3,7 @@ package com.tjeannin.provigen;
 import java.lang.reflect.Method;
 
 import android.content.ContentValues;
+import android.net.Uri;
 
 import com.tjeannin.provigen.annotation.Column;
 import com.tjeannin.provigen.exception.InvalidEntityException;
@@ -43,6 +44,8 @@ public class ProviGenEntity {
 						contentValues.put(column.name(), (Short) result);
 					} else if (result instanceof String) {
 						contentValues.put(column.name(), (String) result);
+					} else if (result instanceof Uri) {
+						contentValues.put(column.name(), ((Uri) result).toString());
 					} else {
 						new InvalidEntityException("The " + method.getName() + " method return type is not supported.").printStackTrace();
 					}

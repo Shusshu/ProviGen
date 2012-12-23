@@ -1,5 +1,7 @@
 package com.tjeannin.provigen.test;
 
+import android.net.Uri;
+
 import com.tjeannin.provigen.ProviGenEntity;
 import com.tjeannin.provigen.annotation.Column;
 import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
@@ -13,6 +15,8 @@ public class Entity extends ProviGenEntity {
 	private double myDouble;
 
 	private boolean myBoolean;
+
+	private Uri myUri;
 
 	@Column(name = EntityContract.MY_INT)
 	public int getMyInt() {
@@ -50,4 +54,12 @@ public class Entity extends ProviGenEntity {
 		this.myBoolean = myBoolean;
 	}
 
+	@Column(name = EntityContract.MY_URI)
+	public Uri getMyUri() {
+		return myUri;
+	}
+
+	public void setMyUri(Uri myUri) {
+		this.myUri = myUri;
+	}
 }

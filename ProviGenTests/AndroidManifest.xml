@@ -19,7 +19,7 @@
         <uses-library android:name="android.test.runner" />
 
         <provider
-            android:name="com.tjeannin.provigen.test.EntityContentProvider"
+            android:name="com.tjeannin.provigen.test.DummyEntityContentProvider"
             android:authorities="com.test.entity"
             android:exported="false" >
         </provider>

@@ -4,9 +4,9 @@ import android.net.Uri;
 
 import com.tjeannin.provigen.ProviGenEntity;
 import com.tjeannin.provigen.annotation.Persist;
-import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
+import com.tjeannin.provigen.test.DummyEntityContentProvider.EntityContract;
 
-public class Entity extends ProviGenEntity {
+public class DummyEntity extends ProviGenEntity {
 
 	private int myInt;
 

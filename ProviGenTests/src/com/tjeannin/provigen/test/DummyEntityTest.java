@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
-import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
+import com.tjeannin.provigen.test.DummyEntityContentProvider.EntityContract;
 
-public class EntityTest extends AndroidTestCase {
+public class DummyEntityTest extends AndroidTestCase {
 
 	private ContentResolver contentResolver;
 
@@ -37,7 +37,7 @@ public class EntityTest extends AndroidTestCase {
 
 	public void testGetEntityContentValues() {
 
-		Entity entity = new Entity();
+		DummyEntity entity = new DummyEntity();
 
 		entity.setMyInt(123);
 		entity.setMyBoolean(true);

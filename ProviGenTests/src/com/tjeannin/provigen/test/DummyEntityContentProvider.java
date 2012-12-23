@@ -10,9 +10,9 @@ import com.tjeannin.provigen.annotation.ContentUri;
 import com.tjeannin.provigen.annotation.Contract;
 import com.tjeannin.provigen.exception.InvalidContractException;
 
-public class EntityContentProvider extends ProviGenProvider {
+public class DummyEntityContentProvider extends ProviGenProvider {
 
-	public EntityContentProvider() throws InvalidContractException {
+	public DummyEntityContentProvider() throws InvalidContractException {
 		super(EntityContract.class);
 	}
 

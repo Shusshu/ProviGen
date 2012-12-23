@@ -102,7 +102,7 @@ public class DummyEntityTest extends AndroidTestCase {
 		assertEquals(888, entity.getMyInt());
 		assertEquals(true, entity.getMyBoolean());
 		assertEquals("testString", entity.getMyString());
-		assertEquals("www.google.fr", entity.getMyUri());
+		assertEquals(Uri.parse("www.google.fr"), entity.getMyUri());
 		assertEquals(8465.16, entity.getMyDouble());
 
 		ContentValues contentValues = entity.getContentValues();

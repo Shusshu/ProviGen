@@ -22,6 +22,41 @@ public class ProviGenEntity {
 
 	public ProviGenEntity(Cursor cursor) {
 
+		Field[] fields = this.getClass().getDeclaredFields();
+		for (Field field : fields) {
+			Persist persist = field.getAnnotation(Persist.class);
+			if (persist != null) {
+				try {
+					field.setAccessible(true);
+					Class<?> type = field.getType();
+					if (type.equals(Boolean.class) || type.getName().equals("boolean")) {
+						field.setBoolean(this, cursor.getInt(cursor.getColumnIndex(persist.columnName())) == 1);
+					} else if (type.equals(Byte.class) || type.getName().equals("byte")) {
+						field.setByte(this, cursor.getBlob(cursor.getColumnIndex(persist.columnName()))[0]);
+					} else if (type.equals(byte[].class)) {
+						field.set(this, cursor.getBlob(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(Double.class) || type.getName().equals("double")) {
+						field.setDouble(this, cursor.getDouble(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(Float.class) || type.getName().equals("float")) {
+						field.setFloat(this, cursor.getFloat(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(Integer.class) || type.getName().equals("int")) {
+						field.setInt(this, cursor.getInt(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(Long.class) || type.getName().equals("long")) {
+						field.setLong(this, cursor.getLong(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(Short.class) || type.getName().equals("short")) {
+						field.setShort(this, cursor.getShort(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(String.class)) {
+						field.set(this, cursor.getString(cursor.getColumnIndex(persist.columnName())));
+					} else if (type.equals(Uri.class)) {
+						field.set(this, Uri.parse(cursor.getString(cursor.getColumnIndex(persist.columnName()))));
+					} else {
+						new InvalidEntityException("The " + field.getName() + " method return type is not supported.").printStackTrace();
+					}
+				} catch (Exception exception) {
+					exception.printStackTrace();
+				}
+			}
+		}
 	}
 
 	public ContentValues getContentValues() {

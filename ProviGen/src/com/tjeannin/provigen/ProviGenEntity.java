@@ -1,6 +1,6 @@
 package com.tjeannin.provigen;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -21,47 +21,48 @@ public class ProviGenEntity {
 	}
 
 	public ProviGenEntity(Cursor cursor) {
-		
+
 	}
 
 	public ContentValues getContentValues() {
 
 		ContentValues contentValues = new ContentValues();
 
-		Method[] methods = this.getClass().getMethods();
-		for (Method method : methods) {
-			Persist persist = method.getAnnotation(Persist.class);
+		Field[] fields = this.getClass().getDeclaredFields();
+		for (Field field : fields) {
+			Persist persist = field.getAnnotation(Persist.class);
 			if (persist != null) {
 
-				Object result = null;
+				Object value = new Object();
 				try {
-					result = method.invoke(this, (Object[]) null);
+					field.setAccessible(true);
+					value = field.get(this);
 				} catch (Exception exception) {
 					exception.printStackTrace();
 				}
-				if (result != null) {
-					if (result instanceof Boolean) {
-						contentValues.put(persist.columnName(), (Boolean) result);
-					} else if (result instanceof Byte) {
-						contentValues.put(persist.columnName(), (Byte) result);
-					} else if (result instanceof byte[]) {
-						contentValues.put(persist.columnName(), (byte[]) result);
-					} else if (result instanceof Double) {
-						contentValues.put(persist.columnName(), (Double) result);
-					} else if (result instanceof Float) {
-						contentValues.put(persist.columnName(), (Float) result);
-					} else if (result instanceof Integer) {
-						contentValues.put(persist.columnName(), (Integer) result);
-					} else if (result instanceof Long) {
-						contentValues.put(persist.columnName(), (Long) result);
-					} else if (result instanceof Short) {
-						contentValues.put(persist.columnName(), (Short) result);
-					} else if (result instanceof String) {
-						contentValues.put(persist.columnName(), (String) result);
-					} else if (result instanceof Uri) {
-						contentValues.put(persist.columnName(), ((Uri) result).toString());
+				if (value != null) {
+					if (value instanceof Boolean) {
+						contentValues.put(persist.columnName(), (Boolean) value);
+					} else if (value instanceof Byte) {
+						contentValues.put(persist.columnName(), (Byte) value);
+					} else if (value instanceof byte[]) {
+						contentValues.put(persist.columnName(), (byte[]) value);
+					} else if (value instanceof Double) {
+						contentValues.put(persist.columnName(), (Double) value);
+					} else if (value instanceof Float) {
+						contentValues.put(persist.columnName(), (Float) value);
+					} else if (value instanceof Integer) {
+						contentValues.put(persist.columnName(), (Integer) value);
+					} else if (value instanceof Long) {
+						contentValues.put(persist.columnName(), (Long) value);
+					} else if (value instanceof Short) {
+						contentValues.put(persist.columnName(), (Short) value);
+					} else if (value instanceof String) {
+						contentValues.put(persist.columnName(), (String) value);
+					} else if (value instanceof Uri) {
+						contentValues.put(persist.columnName(), ((Uri) value).toString());
 					} else {
-						new InvalidEntityException("The " + method.getName() + " method return type is not supported.").printStackTrace();
+						new InvalidEntityException("The " + field.getName() + " method return type is not supported.").printStackTrace();
 					}
 				}
 			}

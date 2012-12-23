@@ -8,11 +8,11 @@ import java.lang.annotation.Target;
 import com.tjeannin.provigen.ProviGenProvider;
 
 /**
- * Identifies a getter that should be used to persist the {@link Entity} into the {@link ProviGenProvider}.</br>
- * @param name The name of the {@link Column} where to persist the returned value.
+ * Identifies a field that should be persisted into the {@link ProviGenProvider}.</br>
+ * @param name The name of the {@link Column} where to persist the field.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target(ElementType.FIELD)
 public @interface Persist {
 	String columnName();
 }

@@ -11,14 +11,19 @@ import com.tjeannin.provigen.test.DummyEntityContentProvider.DummyContract;
 @Entity(contentUri = DummyContract.CONTENT_URI_STRING)
 public class DummyEntity extends ProviGenEntity {
 
+	@Persist(columnName = DummyContract.MY_INT)
 	private int myInt;
 
+	@Persist(columnName = DummyContract.MY_STRING)
 	private String myString;
 
+	@Persist(columnName = DummyContract.MY_DOUBLE)
 	private double myDouble;
 
+	@Persist(columnName = DummyContract.MY_BOOLEAN)
 	private boolean myBoolean;
 
+	@Persist(columnName = DummyContract.MY_URI)
 	private Uri myUri;
 
 	public DummyEntity() {
@@ -29,7 +34,6 @@ public class DummyEntity extends ProviGenEntity {
 		super(cursor);
 	}
 
-	@Persist(columnName = DummyContract.MY_INT)
 	public int getMyInt() {
 		return myInt;
 	}
@@ -38,7 +42,6 @@ public class DummyEntity extends ProviGenEntity {
 		this.myInt = myInt;
 	}
 
-	@Persist(columnName = DummyContract.MY_STRING)
 	public String getMyString() {
 		return myString;
 	}
@@ -47,7 +50,6 @@ public class DummyEntity extends ProviGenEntity {
 		this.myString = myString;
 	}
 
-	@Persist(columnName = DummyContract.MY_DOUBLE)
 	public double getMyDouble() {
 		return myDouble;
 	}
@@ -56,7 +58,6 @@ public class DummyEntity extends ProviGenEntity {
 		this.myDouble = myDouble;
 	}
 
-	@Persist(columnName = DummyContract.MY_BOOLEAN)
 	public boolean getMyBoolean() {
 		return myBoolean;
 	}
@@ -65,7 +66,6 @@ public class DummyEntity extends ProviGenEntity {
 		this.myBoolean = myBoolean;
 	}
 
-	@Persist(columnName = DummyContract.MY_URI)
 	public Uri getMyUri() {
 		return myUri;
 	}

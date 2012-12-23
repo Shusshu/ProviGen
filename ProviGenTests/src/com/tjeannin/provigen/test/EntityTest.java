@@ -38,7 +38,7 @@ public class EntityTest extends AndroidTestCase {
 	public void testGetEntityContentValues() {
 
 		Entity entity = new Entity();
-		
+
 		entity.setMyInt(123);
 		entity.setMyBoolean(true);
 		entity.setMyUri(Uri.parse("http://www.google.com"));
@@ -59,6 +59,8 @@ public class EntityTest extends AndroidTestCase {
 		contentValues.put(EntityContract.MY_INT, 1456);
 		contentValues.put(EntityContract.MY_STRING, "hfdzue");
 		contentValues.put(EntityContract.MY_DOUBLE, 1456.45);
+		contentValues.put(EntityContract.MY_BOOLEAN, false);
+		contentValues.put(EntityContract.MY_URI, "www.google.com");
 		return contentValues;
 	}
 

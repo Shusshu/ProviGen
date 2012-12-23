@@ -15,5 +15,5 @@ import com.tjeannin.provigen.ProviGenProvider;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Entity {
-	int uri();
+	String contentUri();
 }

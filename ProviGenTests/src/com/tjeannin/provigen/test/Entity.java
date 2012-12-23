@@ -3,7 +3,7 @@ package com.tjeannin.provigen.test;
 import android.net.Uri;
 
 import com.tjeannin.provigen.ProviGenEntity;
-import com.tjeannin.provigen.annotation.Column;
+import com.tjeannin.provigen.annotation.Persist;
 import com.tjeannin.provigen.test.EntityContentProvider.EntityContract;
 
 public class Entity extends ProviGenEntity {
@@ -18,7 +18,7 @@ public class Entity extends ProviGenEntity {
 
 	private Uri myUri;
 
-	@Column(name = EntityContract.MY_INT)
+	@Persist(columnName = EntityContract.MY_INT)
 	public int getMyInt() {
 		return myInt;
 	}
@@ -27,7 +27,7 @@ public class Entity extends ProviGenEntity {
 		this.myInt = myInt;
 	}
 
-	@Column(name = EntityContract.MY_STRING)
+	@Persist(columnName = EntityContract.MY_STRING)
 	public String getMyString() {
 		return myString;
 	}
@@ -36,7 +36,7 @@ public class Entity extends ProviGenEntity {
 		this.myString = myString;
 	}
 
-	@Column(name = EntityContract.MY_DOUBLE)
+	@Persist(columnName = EntityContract.MY_DOUBLE)
 	public double getMyDouble() {
 		return myDouble;
 	}
@@ -45,7 +45,7 @@ public class Entity extends ProviGenEntity {
 		this.myDouble = myDouble;
 	}
 
-	@Column(name = EntityContract.MY_BOOLEAN)
+	@Persist(columnName = EntityContract.MY_BOOLEAN)
 	public boolean getMyBoolean() {
 		return myBoolean;
 	}
@@ -54,7 +54,7 @@ public class Entity extends ProviGenEntity {
 		this.myBoolean = myBoolean;
 	}
 
-	@Column(name = EntityContract.MY_URI)
+	@Persist(columnName = EntityContract.MY_URI)
 	public Uri getMyUri() {
 		return myUri;
 	}

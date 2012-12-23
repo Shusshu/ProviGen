@@ -10,7 +10,7 @@ import android.content.ContentProvider;
 import com.tjeannin.provigen.ProviGenProvider;
 
 /**
- * Identifies a class representing a {@link ContentProvider} contract.<br/>
+ * Identifies a {@link ContentProvider} contract.<br/>
  * You should <b>increase the contract version each time you modify it.</b><br/>
  * On contract version increased, the {@link ProviGenProvider} will makes the necessary changes to the underlying database.<br/>
  * A {@link Contract} class should have:

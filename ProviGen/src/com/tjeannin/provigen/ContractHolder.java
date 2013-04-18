@@ -10,6 +10,10 @@ import com.tjeannin.provigen.annotation.Column;
 import com.tjeannin.provigen.annotation.ContentUri;
 import com.tjeannin.provigen.annotation.Contract;
 import com.tjeannin.provigen.annotation.Id;
+<<<<<<< HEAD
+=======
+import com.tjeannin.provigen.annotation.NotNull;
+>>>>>>> official-origin/master
 import com.tjeannin.provigen.annotation.Unique;
 
 class ContractHolder {
@@ -68,8 +72,12 @@ class ContractHolder {
 
 					Unique unique = field.getAnnotation(Unique.class);
 					if (unique != null) {
-						databaseField.setUnique(true);
-						databaseField.setOnConflict(unique.value());
+						databaseField.getConstraints().add(new Constraint(Constraint.UNIQUE, unique.value()));
+					}
+
+					NotNull notNull = field.getAnnotation(NotNull.class);
+					if (notNull != null) {
+						databaseField.getConstraints().add(new Constraint(Constraint.NOT_NULL, notNull.value()));
 					}
 
 					databaseFields.add(databaseField);
@@ -88,10 +96,12 @@ class ContractHolder {
 		}
 	}
 
-	public boolean hasUniqueDatabaseFields() {
+	public boolean hasColumnConstraint(String constraint) {
 		for (DatabaseField field : databaseFields) {
-			if (field.isUnique()) {
-				return true;
+			for (Constraint fieldConstraint : field.getConstraints()) {
+				if (fieldConstraint.getType().equals(constraint)) {
+					return true;
+				}
 			}
 		}
 		return false;
@@ -100,11 +110,11 @@ class ContractHolder {
 	private boolean isOnConflictSameEverywhere() {
 		String onConflict = null;
 		for (DatabaseField field : databaseFields) {
-			if (field.isUnique()) {
+			for (Constraint constraint : field.getConstraints()) {
 				if (onConflict == null) {
-					onConflict = field.getOnConflict();
+					onConflict = constraint.getOnConflict();
 				} else {
-					if (!onConflict.equals(field.getOnConflict())) {
+					if (!onConflict.equals(constraint.getOnConflict())) {
 						return false;
 					}
 				}

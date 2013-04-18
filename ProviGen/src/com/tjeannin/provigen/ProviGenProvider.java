@@ -1,6 +1,5 @@
 package com.tjeannin.provigen;
 
-
 import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
@@ -10,7 +9,6 @@ import android.content.ContentProviderResult;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.OperationApplicationException;
-
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -322,7 +320,12 @@ public class ProviGenProvider extends ContentProvider {
 			return new String[] { element };
 		}
 	}
-	
+
+	/**
+	 * Apply a batch of uri's within a database transaction
+	 * @param operations
+	 * @return 
+	 */
 	@Override
     public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> operations) 
             throws OperationApplicationException {

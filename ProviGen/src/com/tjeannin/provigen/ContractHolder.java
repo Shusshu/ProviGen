@@ -10,10 +10,7 @@ import com.tjeannin.provigen.annotation.Column;
 import com.tjeannin.provigen.annotation.ContentUri;
 import com.tjeannin.provigen.annotation.Contract;
 import com.tjeannin.provigen.annotation.Id;
-<<<<<<< HEAD
-=======
 import com.tjeannin.provigen.annotation.NotNull;
->>>>>>> official-origin/master
 import com.tjeannin.provigen.annotation.Unique;
 
 class ContractHolder {

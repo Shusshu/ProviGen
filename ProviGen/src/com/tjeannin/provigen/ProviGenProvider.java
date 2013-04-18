@@ -91,14 +91,6 @@ public class ProviGenProvider extends ContentProvider {
 	}
 	
 	/**
-	 * 
-	 * @return A readable SQLiteDatabase
-	 */
-	protected SQLiteDatabase getReadableDatabase() {
-		return openHelper.getReadableDatabase();
-	}
-	
-	/**
 	 * Called when the database is created for the first time. </br>
 	 * The {@link ProviGenProvider} automatically creates database tables and the needed columns
 	 * if {@code super.onCreateDatabase(database)} is called.</br>

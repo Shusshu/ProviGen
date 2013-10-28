@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>com.github.TimotheeJeannin</groupId>
 		<artifactId>ProviGen-parent</artifactId>
-		<version>1.6.0</version>
+		<version>1.6.0.20131028</version>
 	</parent>
 
 	<artifactId>ProviGen-lib</artifactId>
 	<name>ProviGen</name>
-	<packaging>apklib</packaging>
+	<!-- <packaging>apklib</packaging> -->
 
 	<dependencies>
 		<dependency>

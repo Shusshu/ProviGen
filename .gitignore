@@ -5,6 +5,15 @@
 # files for the dex VM
 *.dex
 
+# Eclipse files
+.project
+.classpath
+.settings
+
+# Idea files
+.idea
+*.iml
+
 # Java class files
 *.class
 
@@ -16,18 +25,10 @@ gen/
 local.properties
 /.settings
 
-# Eclipse
-.project
-.classpath
 
 # Maven
 target
 
-# Intellij project files
-*.iml
-*.ipr
-*.iws
-.idea/
 
 #gradle
 .gradle

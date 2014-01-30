@@ -59,9 +59,9 @@ public class ProviGenProvider extends ContentProvider {
 	@SuppressLint("Registered")
 	@SuppressWarnings("rawtypes")
 	public ProviGenProvider(Class[] contractClasses) throws InvalidContractException {
-		for (int i = 0; i < contractClasses.length; i++) {
-			contracts.add(new ContractHolder(contractClasses[i]));
-		}
+        for (Class contractClass : contractClasses) {
+            contracts.add(new ContractHolder(contractClass));
+        }
 	}
 
 	/**
@@ -169,18 +169,18 @@ public class ProviGenProvider extends ContentProvider {
 	}
 
 	/**
-	 * Used to switch from a {@link Contract} to an other dynamically.<br/>
+	 * Used to switch from a set of {@link Contract}s to an other dynamically.<br/>
 	 * Note that this may change the database schema.
 	 * May be used for testing purpose. <br/>
-	 * @param contractClass The {@link Contract} to switch to.
+	 * @param contractClasses The set of {@link Contract}s to switch to.
 	 * @throws InvalidContractException
 	 */
 	@SuppressWarnings("rawtypes")
 	public void setContractClasses(Class[] contractClasses) throws InvalidContractException {
 		contracts.clear();
-		for (int i = 0; i < contractClasses.length; i++) {
-			contracts.add(new ContractHolder(contractClasses[i]));
-		}
+        for (Class contractClass : contractClasses) {
+            contracts.add(new ContractHolder(contractClass));
+        }
 		onCreate();
 	}
 
@@ -311,9 +311,7 @@ public class ProviGenProvider extends ContentProvider {
 	private static String[] appendToStringArray(String[] array, String element) {
 		if (array != null) {
 			String[] newArray = new String[array.length + 1];
-			for (int i = 0; i < array.length; i++) {
-				newArray[i] = array[i];
-			}
+			System.arraycopy(array, 0, newArray, 0, array.length);
 			newArray[array.length] = element;
 			return newArray;
 		} else {

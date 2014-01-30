@@ -53,7 +53,7 @@ class ContractHolder {
 			Id id = field.getAnnotation(Id.class);
 			if (id != null) {
 				if (idField != null) {
-					throw new InvalidContractException("A contract can not have several fields annoted with @Id.");
+					throw new InvalidContractException("A contract can not have several fields annotated with @Id.");
 				}
 				try {
 					idField = (String) field.get(null);
@@ -84,40 +84,9 @@ class ContractHolder {
 			}
 		}
 
-		if (!isOnConflictSameEverywhere()) {
-			throw new InvalidContractException("OnConflict parameter sould be the same for all @Unique annotations.");
-		}
-
 		if (authority == null || tableName == null) {
 			throw new InvalidContractException("The contract is missing a @ContentUri.");
 		}
-	}
-
-	public boolean hasColumnConstraint(String constraint) {
-		for (DatabaseField field : databaseFields) {
-			for (Constraint fieldConstraint : field.getConstraints()) {
-				if (fieldConstraint.getType().equals(constraint)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	private boolean isOnConflictSameEverywhere() {
-		String onConflict = null;
-		for (DatabaseField field : databaseFields) {
-			for (Constraint constraint : field.getConstraints()) {
-				if (onConflict == null) {
-					onConflict = constraint.getOnConflict();
-				} else {
-					if (!onConflict.equals(constraint.getOnConflict())) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
 	}
 
 	public int getVersion() {

@@ -21,4 +21,15 @@ local.properties
 .classpath
 
 # Maven
-/target
+target
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+#gradle
+.gradle
+build/
+*.*~

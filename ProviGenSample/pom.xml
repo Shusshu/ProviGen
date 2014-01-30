@@ -19,12 +19,11 @@
 			<artifactId>android</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency> 
-		    <groupId>android.support</groupId> 
-		    <artifactId>compatibility-v4</artifactId> 
-			<version>12</version> 
-			<scope>compile</scope> 
-		</dependency> 
+        <dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>support-v4</artifactId>
+            <version>19.0.1</version>
+        </dependency>
 		<dependency> 
 		    <groupId>com.github.TimotheeJeannin</groupId> 
 		    <artifactId>ProviGen-lib</artifactId> 
